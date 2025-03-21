@@ -1,63 +1,77 @@
-@extends('/layouts/auth')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProjectCoffee</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .masthead {
+            background: url('/images/coffee-bg.jpg') no-repeat center center;
+            background-size: cover;
+            height: 100vh;
+            position: relative;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 100%);
+        }
+    </style>
+</head>
+<body>
+    <header class="masthead flex items-center justify-center relative overflow-hidden">
+        <div class="overlay"></div>
+        <div class="container text-center relative z-10 text-white px-4">
+            <h1 class="text-6xl md:text-8xl font-bold uppercase mb-6 animate-fade-in-down font-serif">
+                ProjectCoffee
+            </h1>
+            <h2 class="text-xl md:text-2xl text-gray-200 mb-8 animate-fade-in-up max-w-2xl mx-auto leading-relaxed">
+                Experience the art of premium coffee. Crafted with passion, brewed to perfection.
+            </h2>
+            <a class="inline-block bg-[#d4a037] hover:bg-[#b8862f] text-white font-semibold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 animate-fade-in-up shadow-lg hover:shadow-xl" href="auth">
+                Explore Our Menu
+            </a>
+        </div>
 
-@push('css-dependencies')
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="/css/landing.css" rel="stylesheet">
-<style>
-    /* Custom Styling */
-    .masthead {
-        background: url('/images/coffee-bg.jpg') no-repeat center center;
-        background-size: cover;
-        height: 100vh;
-        position: relative;
-    }
-    .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.6);
-    }
-    .masthead .container {
-        position: relative;
-        z-index: 2;
-    }
-    .masthead h1 {
-        font-size: 3rem;
-        font-weight: bold;
-        color: #fff;
-    }
-    .masthead h2 {
-        font-size: 1.5rem;
-        color: rgba(255, 255, 255, 0.8);
-    }
-    .btn-primary {
-        background-color: #c99c33;
-        border-color: #c99c33;
-        padding: 12px 24px;
-        font-size: 1.2rem;
-    }
-    .btn-primary:hover {
-        background-color: #a67c28;
-        border-color: #a67c28;
-    }
-</style>
-@endpush
+        <!-- Scrolling Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </header>
 
-@push('scripts-dependencies')
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/js/landing.js"></script>
-
-@endpush
-
-@section("content")
-<header class="masthead d-flex align-items-center justify-content-center">
-    <div class="overlay"></div>
-    <div class="container text-center">
-        <h1 class="text-uppercase">Projectcoffe</h1>
-        <h2 class="mt-2 mb-4">New way to enjoy quality coffee</h2>
-        <a class="btn btn-primary" href="auth">Get Started</a>
-    </div>
-</header>
-@endsection
+    <!-- Tailwind CSS Animation Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'fade-in-down': 'fadeInDown 1s ease-out',
+                        'fade-in-up': 'fadeInUp 1s ease-out',
+                        'bounce': 'bounce 2s infinite',
+                    },
+                    keyframes: {
+                        fadeInDown: {
+                            '0%': { opacity: '0', transform: 'translateY(-20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        bounce: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                    },
+                },
+            },
+        };
+    </script>
+</body>
+</html>
