@@ -21,7 +21,26 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
 
-        return $product;
+        if ($product == null) { 
+            abort(404);
+        }
+
+        //kirim data product ke view
+        return view('/partials/product/product_detail_modal', compact("product"))->render()->json($product);
+    }
+
+    public function show($id)
+    {
+        // Ambil satu data produk berdasarkan ID
+        $product = Product::find($id);
+    
+        // Jika produk tidak ditemukan, kembalikan 404
+        if (!$product) {
+            abort(404);
+        }
+    
+        // Kirim data produk ke view
+        return view('product.detail', compact('product'));
     }
 
 

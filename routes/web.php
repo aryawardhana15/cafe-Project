@@ -56,6 +56,8 @@ Route::middleware(['auth'])->group(function () {
     Route::controller(ProductController::class)->group(function () {
         Route::get("/product", "index");
         Route::get("/product/data/{id}", "getProductData");
+        Route::get("/product/detail/{product:id}", "show");
+        Route::get('/product/detail/{id}', [ProductController::class, 'show'])->name('product.detail');
 
         // admin only
         Route::get("/product/add_product", "addProductGet")->can("add_product", App\Models\Product::class);
