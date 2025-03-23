@@ -54,10 +54,15 @@ Route::middleware(['auth'])->group(function () {
 
     // Product
     Route::controller(ProductController::class)->group(function () {
-        Route::get("/product", "index");
-        Route::get("/product/data/{id}", "getProductData");
-        Route::get("/product/detail/{product:id}", "show");
-        Route::get('/product/detail/{id}', [ProductController::class, 'show'])->name('product.detail');
+
+     // Route untuk menampilkan daftar produk
+Route::get('/product', [ProductController::class, 'index'])->name('product.index');
+
+// Route untuk menampilkan detail produk menggunakan route model binding
+Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.detail');
+
+// Route untuk mendapatkan data produk (misalnya untuk modal)
+Route::get('/product/data/{id}', [ProductController::class, 'getProductData'])->name('product.data');
 
         // admin only
         Route::get("/product/add_product", "addProductGet")->can("add_product", App\Models\Product::class);
