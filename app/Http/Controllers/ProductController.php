@@ -42,6 +42,8 @@ class ProductController extends Controller
         return view('product.detail', compact('product'));
     }
 
+    
+
     public function addProductGet()
     {
         $title = "Add Product";
