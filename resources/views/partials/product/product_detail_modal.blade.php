@@ -18,7 +18,9 @@
     <section class="container mx-auto px-4 py-8">
         <div class="bg-white shadow-lg rounded-lg overflow-hidden">
             <!-- Product Image -->
-            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->product_name }}" class="w-full h-64 object-cover">
+            @foreach ($products as $product)
+    <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->product_name }}" class="w-full h-64 object-cover">
+@endforeach
 
             <!-- Product Content -->
             <div class="p-6">

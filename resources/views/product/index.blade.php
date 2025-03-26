@@ -43,7 +43,10 @@
             @endcan
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                @foreach($product as $row)
+            @foreach($products as $row)
+    <p>{{ $row->product_name }}</p>
+
+
                 <!-- Product card -->
                 <div class="col-span-1">
                     <div class="relative group" onmouseenter="this.classList.add('hover')" onmouseleave="this.classList.remove('hover')">
