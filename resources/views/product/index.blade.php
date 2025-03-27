@@ -35,7 +35,7 @@
             @can('add_product',App\Models\Product::class)
             <div class="flex justify-end mb-6">
                 <a href="/product/add_product" class="no-underline">
-                    <div class="bg-blue-500 text-white px-4 py-2 rounded">Add Product</div>
+                    <div class="bg-blue-500 text-white px-4 py-2 rounded">Add Product...</div>
                 </a>
             </div>
             @else
@@ -45,7 +45,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             @foreach($products as $row)
     <p>{{ $row->product_name }}</p>
-
+    @endforeach
 
                 <!-- Product card -->
                 <div class="col-span-1">
@@ -95,7 +95,6 @@
                     </div>
                 </div>
                 <!-- ./product card -->
-                @endforeach
             </div>
         </div>
     </section>

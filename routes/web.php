@@ -79,7 +79,7 @@ Route::get('/product/data/{id}', [ProductController::class, 'getProductData'])->
         Route::get("/order/data/{order}", "getOrderData")->can("my_real_order", "order");
         Route::get("/order/getProof/{order}", "getProofOrder")->can("my_real_order", "order");
 
-
+        
         // customer only
         Route::get("/order/make_order/{product:id}", "makeOrderGet")->can("create_order", App\Models\Order::class);
         Route::post("/order/make_order/{product:id}", "makeOrderPost")->can("create_order", App\Models\Order::class);
